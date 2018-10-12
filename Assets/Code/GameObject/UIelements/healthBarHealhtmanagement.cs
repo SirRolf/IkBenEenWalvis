@@ -20,12 +20,17 @@ public class healthBarHealhtmanagement : MonoBehaviour {
 
         if (transform.localScale.x <= 0 )
         {
+			transform.localScale = new Vector3 (0, 0, 0);
 			gameManager.GetComponent<GameManagerGameOver>().GameOver();
         }
         else
         {
             transform.localScale -= new Vector3(healthdecay, 0, 0) * Time.deltaTime;
         }
+
+		if (transform.localScale.x >= 150) {
+			transform.localScale = new Vector2 (150, 10);
+		}
         
 	}
 }
